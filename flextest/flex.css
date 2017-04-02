@@ -1,0 +1,35 @@
+#container {
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column; /*par defaut sans utiliser flex. pour ligne flex-direction: row*/
+    /* flex-direction: column-reverse pour inverser l'ordre des elements sans toucher au html */
+    flex-wrap: wrap; /*par default les block se reserrent autant qu'ils peuvent, avec flex-wrap ils vont a la ligne lors d'un redimensionnement de fenetre */
+    justify-content: flex-start; /*par default. flex-end, center, space-between, space-around */
+    /* concerne l'axe principal */
+
+    /* align-items: flex-star flex-end center; */
+    /* concerne le second axe */
+}
+
+#e1 {
+    background-color: red;
+    border: 1px solid black;
+    height: 150px;
+    width: 100px;
+
+    align-self: flex-end; /* fait une exeption sur un elem par rapport au conteneur */
+}
+
+#e2 {
+    background-color: green;
+    border: 1px solid black;
+    height: 150px;
+    width: 100px;
+}
+
+#e3 {
+    background-color: blue;
+    border: 1px solid black;
+    height: 150px;
+    width: 100px;
+}

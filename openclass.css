@@ -1,0 +1,71 @@
+h1 em { /* pour toutes les balise <em> dans les balise <h1> */
+}
+
+h1 + p { /* uniquement pour la balise <p> qui suit la balise <h1> */
+}
+
+#id { /* # pour attribut id="id" des balises, attention cependant une id est unique */
+}
+
+.class { /* pour tout les attribut class="class" des balises */
+}
+
+h1#chapter1 { /* pour balise <h1 id="chapter1"> */
+}
+
+p, div, span { /* pour appliquer le style a plusieurs balise */
+}
+
+* { /* selecteur universelle = toutes les balises sont concernees */
+}
+
+a[title] { /* pour les balises <a> possedant un attr title= */
+}
+
+a[title="cliquez ici"] { /* pour les balises <a> possedant un attr title="cliquez ici" la valeur dois etre exact*/
+}
+
+a[title*="ici"] { /* <a title="quelque part par ici" /> */
+}
+
+p {
+    font-size: 14em; /* taille relative, s'adapte aux preference utilisateurs */
+    /* 1em = taille normal */
+    font-family: sans-serif; /* police standart */
+    font-style: italic, oblique, normal;
+    font-weight: bold, normal;
+    text-decoration: underline, overline, line-through, blink, none;
+    text-align: left, center, right, justify;
+    float: left;
+    clear: both;
+    opacity: 1; /* default = 1, 0 = transparent. opaque a 60%=0.6 */
+}
+
+p#color {
+    color: white, silver, gray, black, red, maroon, lime, green, yellow, olive, blue, navy, fuchsia, purple, aqua, teal;
+    background-color: black;
+    color: #FFFFFF;
+    color: rgb(240, 96, 204);
+    background-image: url("path.extension");
+    background-attachment: fixed; /* img reste fixe */
+    background-attachment: scroll; /* img defile avec le texte, comportement par default */
+    background-repeat: no-repeat;
+    background-position: top right; /* bottom, top, center, left, right */
+    height: 50%;
+    width: 50%;
+    padding: 5px; /* marge interieur */
+    margin: 5px; /* marge exterieur */
+    margin: auto; /* permet de centrer le bloc */
+}
+
+.border {
+    border: 2px solid black;
+    border-left: 5px double red;
+    border-radius: 10px;
+    overflow: auto; /* empeche le texte de sortir du block et creer une scrollbar */
+    word-wrap: break-word; /* permet de couper les mots pour aller a la ligne */
+}
+
+p#box-shadow {
+    box-shadow: 6px 6px 0px black; /* decalage horizontal de l'ombre, vertical, degrade, couleur */
+}
