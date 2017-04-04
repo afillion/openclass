@@ -33,8 +33,8 @@
 
   video.addEventListener('canplay', function(ev){
     if (!streaming) {
-      height = video.videoHeight;
-      width = video.videoWidth;
+      height = video.clientHeight;
+      width = video.clientWidth;
       canvas.setAttribute('width', 0);
       canvas.setAttribute('height', 0);
       // video.setAttribute('width', width);

@@ -12,10 +12,10 @@ session_start();
 <body>
   <?php include("header.php"); ?>
   <nav>
-    <div class="element_nav">
+    <div class="element_nav" onclick="location.href='sign_up.php'">
       <p><a href="sign_up.php">Sign Up</a></p> <!-- S'enregistrer / S'inscrire -->
     </div>
-    <div class="element_nav">
+    <div class="element_nav" onclick="location.href='sign_in.php'">
       <p><a href="sign_in.php">Sign In</a></p> <!-- Se connecter -->
     </div>
   </nav>
