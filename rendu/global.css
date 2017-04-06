@@ -17,6 +17,7 @@ header {
 	display: flex;
 	justify-content: center;
 	background-color: #007fcc;
+	border-radius: 10px;
 }
 
 .element_header {
@@ -31,6 +32,7 @@ header {
 	text-align: center;
 	position: relative;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 .element_header:after {
@@ -56,6 +58,7 @@ nav {
 	display: flex;
 	background-color: #007fcc;
 	justify-content: space-around;
+	border-radius: 10px;
 }
 
 .element_nav {
@@ -67,6 +70,7 @@ nav {
 	text-align: center;
 	position: relative;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 .element_nav:after {
@@ -95,6 +99,7 @@ footer {
 	height: 100%;
 	max-height: 200px;
 	margin-top: auto;
+	border-radius: 10px;
 }
 
 footer p {
@@ -113,9 +118,31 @@ section {
 	justify-content: center;
 }
 
+section.alert-wrong {
+	border-radius: 10px;
+	background-color: red;
+	margin: 10px;
+	justify-content: center;
+}
+
+section.alert-wrong p {
+	width: 100%;
+}
+
 header#header_section {
 	width: 100%;
 	display: block;
+}
+
+.btn {
+	border-radius: 10px;
+	background-color: #007fcc;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 article {

@@ -1,33 +1,26 @@
 <?PHP
 session_start();
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8"/>
-  <meta author="Alexis Fillion" />
-  <link rel="stylesheet" href="global.css"/>
-  <title>Camagru</title>
-</head>
-<body>
-  <?php include("header.php"); ?>
-  <nav>
-    <div class="element_nav" onclick="location.href='sign_up.php'">
-      <p><a href="sign_up.php">Sign Up</a></p> <!-- S'enregistrer / S'inscrire -->
-    </div>
-    <div class="element_nav" onclick="location.href='sign_in.php'">
-      <p><a href="sign_in.php">Sign In</a></p> <!-- Se connecter -->
-    </div>
-  </nav>
-  <section>
-    <header id="header_section">
-      <h2>What is Camagru ?</h2>
-      <p>Thanks to web app Camagru, take pictures using your webcam and have fun modifying them with our filters !</p>
-      <p>Please register before or loggin if you have already signed up :)</p>
-    </header>
-    <article>
-      <p>Ceci est la balise article</p>
-      <video autoplay id="video"></video>
+<?php include("header.php"); ?>
+<br/>
+<nav>
+  <div class="element_nav" onclick="location.href='sign_up.php'">
+    <p><a href="sign_up.php">Sign Up</a></p> <!-- S'enregistrer / S'inscrire -->
+  </div>
+  <div class="element_nav" onclick="location.href='sign_in.php'">
+    <p><a href="sign_in.php">Sign In</a></p> <!-- Se connecter -->
+  </div>
+</nav>
+<br/>
+<section>
+  <header id="header_section">
+    <h2>What is Camagru ?</h2>
+    <p>Thanks to web app Camagru, take pictures using your webcam and have fun modifying them with our filters !</p>
+    <p>Please register before or loggin if you have already signed up :)</p>
+  </header>
+  <article>
+    <p>Ceci est la balise article</p>
+    <video autoplay id="video"></video>
       <!-- <script type="text/javascript">
         function hasGetUserMedia() {
           return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
@@ -61,7 +54,7 @@ session_start();
       </aside>
     </section>
     <section>
-<!--       <img src=""> -->
+      <!--       <img src=""> -->
       <canvas id="canvas"></canvas>
 <!--       <button id="startbutton"></button>
  --><!--       <script type="text/javascript">
@@ -85,5 +78,3 @@ session_start();
       <script type="text/javascript" src="webrtc.js"></script>
     </section>
     <?php include("footer.php"); ?>
-  </body>
-  </html>
