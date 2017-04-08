@@ -4,12 +4,18 @@ session_start();
 <?php include("header.php"); ?>
 <br/>
 <nav>
-  <div class="element_nav" onclick="location.href='sign_up.php'">
-    <p><a href="sign_up.php">Sign Up</a></p> <!-- S'enregistrer / S'inscrire -->
-  </div>
-  <div class="element_nav" onclick="location.href='sign_in.php'">
-    <p><a href="sign_in.php">Sign In</a></p> <!-- Se connecter -->
-  </div>
+  <?php if(isset($_SESSION['auth'])): ?>
+    <div class="element_nav" onclick="location.href='log_out.php'">
+      <p>Se deconnecter</p> <!-- Se deconnecter -->
+    </div>
+  <?php else: ?>
+    <div class="element_nav" onclick="location.href='sign_up.php'">
+      <p><a href="sign_up.php">Sign Up</a></p> <!-- S'enregistrer / S'inscrire -->
+    </div>
+    <div class="element_nav" onclick="location.href='sign_in.php'">
+      <p><a href="sign_in.php">Sign In</a></p> <!-- Se connecter -->
+    </div>
+  <?php endif; ?>
 </nav>
 <br/>
 <section>

@@ -125,6 +125,13 @@ section.alert-wrong {
 	justify-content: center;
 }
 
+section.alert-success {
+	border-radius: 10px;
+	background-color: green;
+	margin: 10px;
+	justify-content: center;
+}
+
 section.alert-wrong p {
 	width: 100%;
 }

@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();	
+}
+?>
 <?php require_once("functions.php"); ?>
 <!DOCTYPE HTML>
 <html>
@@ -14,3 +19,12 @@
 		<p><a href="index.php">Camagru est un site de montage photo</a></p>
 	</div>
 </header>
+
+<?php if ($_SESSION['flash']): ?>
+	<?php foreach ($_SESSION['flash'] as $type => $msg): ?>
+		<section class="alert-<?= $type; ?>">
+			<p><?= $msg; ?></p>
+		</section>
+	<?php endforeach; ?>
+	<?php unset($_SESSION['flash']); ?>
+<?php endif; ?>

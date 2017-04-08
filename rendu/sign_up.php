@@ -1,6 +1,9 @@
 <?php
 
 require_once('./functions.php');
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 
 if (!empty($_POST)) {
 
@@ -49,6 +52,7 @@ if (!empty($_POST)) {
 		$req->execute([$_POST['username'], $_POST['usermail'], $pass, $token]);
 		$user_id = $pdo->lastInsertId();
 		mail($_POST['usermail'], "Confirmation d'inscription", "Pour valider votre inscription, veuillez cliquez sur ce lien:\nhttp://localhost:8080/openclass/rendu/confirm.php?id=$user_id&token=$token");
+		$_SESSION['flash']['success'] = "Un e-mail de confirmation vous a ete envoye !";
 		header("location: sign_in.php");
 		exit();
 	}
