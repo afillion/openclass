@@ -3,7 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();	
 }
 ?>
-<?php require_once("functions.php"); ?>
+
+<?php require_once("functions.php");?>
+
 <!DOCTYPE HTML>
 <html>
 <head>

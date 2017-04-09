@@ -84,22 +84,22 @@ if (!empty($_POST)) {
 
 		<div class="form-group">
 			<label for="">Pseudo</label>
-			<input type="text" name="username"/>
+			<input type="text" name="username" required/>
 		</div>
 
 		<div class="form-group">
 			<label for="">Email</label>
-			<input type="text" name="usermail"/>
+			<input type="text" name="usermail" required/>
 		</div>
 
 		<div class="form-group">
 			<label for="">Mot de passe</label>
-			<input type="password" name="userpassword"/>
+			<input type="password" name="userpassword" required/>
 		</div>
 
 		<div class="form-group">
 			<label for="">Confirmer le mot de passe</label>
-			<input type="password" name="userconfirmpassword"/>
+			<input type="password" name="userconfirmpassword" required/>
 		</div>
 
 		<button type="submit" class="btn">S'inscrire</button>

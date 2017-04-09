@@ -2,6 +2,10 @@
 session_start();
 require_once('functions.php');
 
+if(isset($_COOKIE['remember'])) {
+	var_dump($_COOKIE);
+}
+
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['userpassword'])) {
 	require_once('config/database.php');
 	$req = $pdo->prepare("SELECT * FROM users WHERE (username = :username OR usermail = :username) AND confirmed_at IS NOT NULL");
@@ -11,6 +15,11 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['userpassword'
 		session_start();
 		$_SESSION['auth'] = $user;
 		$_SESSION['flash']['success'] = "Vous etes connecte !";
+		if ($_POST['remember']) {
+			$remember_token = str_random(60);
+			$pdo->prepare("UPDATE users SET remember_token = ? WHERE id = ?")->execute([$remember_token, $user->id]);
+			setcookie('remember', $user->id . '==' . $remember_token . sha1($user->id . "ratonslaveurs"), time()+60*60*24*7);
+		}
 		header("location: account.php");
 		exit();
 	}
@@ -44,15 +53,22 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['userpassword'
 
 		<div class="form-group">
 			<label for="">Pseudo ou e-mail</label>
-			<input type="text" name="username"/>
+			<input type="text" name="username" required/>
 		</div>
 
 		<div class="form-group">
 			<label for="">Mot de passe</label>
-			<input type="password" name="userpassword"/>
+			<input type="password" name="userpassword" required/>
+		</div>
+
+		<div class="form-group">
+			<label>Se souvenir de moi</label>
+			<input type="checkbox" name="remember" value="1"/>
 		</div>
 
 		<button type="submit" class="btn">Se connecter</button>
+
+		<p><a href="forget.php" style="text-decoration: underline; color: red;">(Mot de passe oublie ?)</a></p>
 
 	</form>
 </section>

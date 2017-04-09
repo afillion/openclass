@@ -8,6 +8,9 @@ session_start();
     <div class="element_nav" onclick="location.href='log_out.php'">
       <p>Se deconnecter</p> <!-- Se deconnecter -->
     </div>
+    <div class="element_nav" onclick="location.href='account.php'">
+      <p>Mon compte</p>
+    </div>
   <?php else: ?>
     <div class="element_nav" onclick="location.href='sign_up.php'">
       <p><a href="sign_up.php">Sign Up</a></p> <!-- S'enregistrer / S'inscrire -->

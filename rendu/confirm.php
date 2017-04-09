@@ -12,11 +12,12 @@ session_start();
 if ($user && $user->confirmation_token == $token) {
 	$pdo->prepare("UPDATE users SET confirmation_token = NULL, confirmed_at = NOW() WHERE id = ?")->execute([$user_id]);
 	$_SESSION['auth'] = $user;
-	header("location: account.php");
 	$_SESSION['flash']['success'] = "Votre compte a bien ete valider !";
-	debug($_SESSION);
+	header("location: account.php");
+	exit();
 }
 else {
 	$_SESSION['flash']['wrong'] = "Ce token n'est plus valide";
 	header("location: sign_in.php");
+	exit();
 }
