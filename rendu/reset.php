@@ -34,8 +34,6 @@ else {
 
 <?php include("header.php"); ?>
 
-<br/>
-
 <section>
 	<header id="header_section">
 		<h2>Reinitialisation du mot de passe</h2>

@@ -22,9 +22,6 @@ if (!empty($_POST) && !empty($_POST['usermail'])) {
 ?>
 
 <?php include("header.php"); ?>
-
-<br/>
-
 <section>
 	<header id="header_section">
 		<h2>Mot de passe oublie ?</h2>
@@ -48,7 +45,9 @@ if (!empty($_POST) && !empty($_POST['usermail'])) {
 			<input type="email" name="usermail" required/>
 		</div>
 
-		<button type="submit" class="btn">Reinitialiser mon mot de passe !</button>
+		<div class="form-group">
+			<button type="submit" class="btn">Reinitialiser mon mot de passe !</button>		
+		</div>
 
 	</form>
 </section>

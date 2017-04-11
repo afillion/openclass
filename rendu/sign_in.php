@@ -31,8 +31,6 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['userpassword'
 
 <?php include("header.php"); ?>
 
-<br/>
-
 <section>
 	<header id="header_section">
 		<h2>Se connecter</h2>
@@ -66,7 +64,9 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['userpassword'
 			<input type="checkbox" name="remember" value="1"/>
 		</div>
 
-		<button type="submit" class="btn">Se connecter</button>
+		<div class="form-group">
+			<button type="submit" class="btn">Se connecter</button>		
+		</div>
 
 		<p><a href="forget.php" style="text-decoration: underline; color: red;">(Mot de passe oublie ?)</a></p>
 

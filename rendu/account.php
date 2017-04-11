@@ -23,8 +23,6 @@ if (!empty($_POST)) {
 
 <?php include("header.php"); ?>
 
-<br/>
-
 <section>
 	<h2>Bonjour <?= $_SESSION['auth']->username; ?></h2>
 </section>
@@ -38,7 +36,9 @@ if (!empty($_POST)) {
 		<div class="form-group">
 			<input type="password" name="confirm_pass" placeholder="Confirmer le mot de passe : " required>
 		</div>
-		<button type="submit" class="btn">Changer mon mot de passe !</button>
+		<div class="form-group">
+			<button type="submit" class="btn">Changer mon mot de passe !</button>			
+		</div>
 	</form>
 </section>
 

@@ -8,5 +8,4 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 catch(PDOExepction $e) {
 	echo 'La base de donnee est indisponible !';
 }
-
 ?>

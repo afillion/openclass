@@ -62,7 +62,16 @@ if (!empty($_POST)) {
 
 <?php include("header.php"); ?>
 
-<br/>
+<?php if (!empty($errors)): ?>
+	<div class="alert-wrong">
+		<p>Vous n'avez pas remplit le formulaire correctement !</p>
+		<ul>
+			<?php foreach($errors as $error): ?>
+				<li> <?= $error ?></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+<?php endif; ?>
 
 <section>
 	<header id="header_section">
@@ -70,17 +79,6 @@ if (!empty($_POST)) {
 	</header>
 
 	<form action="" method="POST" class="form-group">
-
-		<?php if (!empty($errors)): ?>
-			<section class="alert-wrong">
-				<p>Vous n'avez pas remplit le formulaire correctement !</p>
-				<ul>
-					<?php foreach($errors as $error): ?>
-						<li> <?= $error ?></li>
-					<?php endforeach; ?>
-				</ul>
-			</section>
-		<?php endif; ?>
 
 		<div class="form-group">
 			<label for="">Pseudo</label>
@@ -102,7 +100,10 @@ if (!empty($_POST)) {
 			<input type="password" name="userconfirmpassword" required/>
 		</div>
 
-		<button type="submit" class="btn">S'inscrire</button>
+		<div class="form-group">
+			<button type="submit" class="btn">S'inscrire</button>			
+		</div>
+
 
 	</form>
 </section>
