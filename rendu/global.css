@@ -9,7 +9,7 @@ html {
 
 body {
 	background-color: #009FFF;
-	min-height: 100vh; /* minimum height = 100% viewport height */
+	min-height: 97vh; /* minimum height = 100% viewport height */
 	display: flex;
 	flex-direction: column; 
 	justify-content: center;
@@ -47,7 +47,6 @@ footer {
 	text-align: right;
 	font-style: italic;
 	padding-right: 25px;
-	height: 100%;
 	margin-top: auto;
 }
 
@@ -105,9 +104,9 @@ aside {
 	width: 45%;
 }
 
-video {
+/*video {
 	max-width: 320px;
 	min-width: 320px;
 	max-height: 320px;
 	min-height: 320px;
-}
+}*/
