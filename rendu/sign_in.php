@@ -2,9 +2,9 @@
 session_start();
 require_once('functions.php');
 
-if(isset($_COOKIE['remember'])) {
-	var_dump($_COOKIE);
-}
+// if(isset($_COOKIE['remember'])) {
+// 	var_dump($_COOKIE);
+// }
 
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['userpassword'])) {
 	require_once('config/database.php');

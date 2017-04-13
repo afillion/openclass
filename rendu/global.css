@@ -104,6 +104,15 @@ aside {
 	width: 45%;
 }
 
+img {
+	max-width: 220px;
+	max-height: 140px;
+}
+
+#choosen {
+	border: 5px solid #00ff00;
+}
+
 /*video {
 	max-width: 320px;
 	min-width: 320px;
