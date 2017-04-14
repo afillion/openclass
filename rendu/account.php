@@ -11,6 +11,10 @@ if (!empty($_POST)) {
 	if (empty($_POST['userpassword']) || $_POST['userpassword'] != $_POST['confirm_pass']) {
 		$_SESSION['flash']['wrong'] = "Les mots de passe ne correspondent pas !";
 	}
+
+	if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$#', $_POST['userpassword'])) {
+		$_SESSION['flash']['wrong'] = "Votre mot de passe dois etre compose d'au moins une majuscule, une minuscule, d'un chiffre et de 6 caracteres !";
+	}
 	else {
 		$user_id = $_SESSION['auth']->id;
 		$password = password_hash($_POST['confirm_pass'], PASSWORD_BCRYPT);

@@ -41,6 +41,9 @@ if (!empty($_POST)) {
 	if (empty($_POST['userpassword'])) {
 		$errors['userpassword'] = "Veuillez renseigner un mot de passe !";
 	}
+	else if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$#', $_POST['userpassword'])) {
+		$errors['userpassword'] = "Votre mot de passe dois etre compose d'au moins une majuscule, une minuscule, d'un chiffre et de 6 caracteres !";
+	}
 	else if ($_POST['userpassword'] != $_POST['userconfirmpassword']) {
 		$errors['userpassword'] = "Le champs de confirmation du mot de passe de correspond pas au mot de passe";
 	}

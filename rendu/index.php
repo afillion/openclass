@@ -17,9 +17,9 @@ session_start();
       <center>
         <form action="upload_img.php" method="POST" enctype="multipart/form-data" class="form-group">
           <div class="form-group">
-            <label for="">Utiliser une image :</label>
+            <label for="">Utiliser une image (PNG) :</label>
             <input type="file" name="img"/>
-            <button type="submit" class="btn">Go !</button>
+            <button type="submit" class="btn">Upload !</button>
           </div>
         </form>
       </center>
@@ -36,12 +36,12 @@ session_start();
       <p>Choose a filter !</p>
     </header>
     <?php
-    $dir = opendir("./images");
+    $dir = opendir("./filters");
     $allow = array("png");
     while ($file = readdir($dir)) {
       if (in_array(substr($file, -3), $allow)) {
         ?>
-        <img id="" src="images/<?php echo $file ?>" alt="" name="<?php echo $file ?>" onclick="select(this)"/>
+        <img id="" class="filters" src="filters/<?php echo $file ?>" alt="" name="<?php echo $file ?>" onclick="select(this)"/>
         <?php
       }
     }?>
