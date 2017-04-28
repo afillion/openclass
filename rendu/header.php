@@ -13,6 +13,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <meta author="Alexis Fillion" />
   <meta name="viewport" content="initial-scale=1.0, user-scalable=yes, width=device-width" />
   <link rel="stylesheet" href="global.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Camagru</title>
 </head>
 <body>
@@ -24,15 +25,21 @@ if (session_status() == PHP_SESSION_NONE) {
 </header>
 <nav>
   <?php if(isset($_SESSION['auth'])): ?>
-    <div class="element_nav" onclick="location.href='log_out.php'">
-      <p>Se deconnecter</p> <!-- Se deconnecter -->
-    </div>
-    <div class="element_nav" onclick="location.href='account.php'">
-      <p>Mon compte</p>
-    </div>
+  	<div class="element_nav" onclick="location.href='account.php'">
+  		<p>Mon compte</p>
+  	</div>
+  	<div class="element_nav" onclick="location.href='gallerie.php'">
+  		<p>Gallerie</p>
+  	</div>
+  	<div class="element_nav" onclick="location.href='log_out.php'">
+  		<p>Se deconnecter</p> <!-- Se deconnecter -->
+  	</div>
   <?php else: ?>
     <div class="element_nav" onclick="location.href='sign_up.php'">
       <p><a href="sign_up.php">Sign Up</a></p> <!-- S'enregistrer / S'inscrire -->
+    </div>
+    <div class="element_nav" onclick="location.href='gallerie.php'">
+      <p>Gallerie</p>
     </div>
     <div class="element_nav" onclick="location.href='sign_in.php'">
       <p><a href="sign_in.php">Sign In</a></p> <!-- Se connecter -->

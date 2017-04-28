@@ -46,4 +46,19 @@ if (!empty($_POST)) {
 	</form>
 </section>
 
+<section id="myimg">
+	<h2>Vos montages !</h2>
+	<?php require_once("config/database.php"); $req = $pdo->prepare("SELECT id, id_user, path FROM images WHERE id_user = ?"); $req->execute([$_SESSION['auth']->id]); $test = $req->fetchAll();?>
+	<?php 
+	$i = 0;
+	while ($test[$i]) {
+		$i++;
+	}
+	?>
+	<?php for($j = 0; $j < $i; $j++): ?>
+		<img src="<?php echo $test[$j]->path; ?>" onclick="supp_select(this);"/>
+	<?php endfor; ?>
+	<input type="submit" name="delete" value="delete" id="button_del" hidden />
+</section>
+  <script type="text/javascript" src="delete.js"></script>
 <?php include("footer.php"); ?>

@@ -37,7 +37,7 @@ nav {
 }
 
 .element_nav {
-	width: 25%;
+	width: 20%;
 	background-color: #ff6000;
 	text-align: center;
 }
@@ -60,6 +60,10 @@ section {
 	text-align: center;
 	flex-wrap: wrap;
 	justify-content: center;
+}
+
+section#myimg {
+	display: block;
 }
 
 div.alert-wrong {
@@ -94,6 +98,7 @@ header#header_section {
 	display: flex;
 	flex-direction: column;
 	width: 25vw;
+	margin: auto;
 }
 
 article {
@@ -109,8 +114,50 @@ img {
 	max-height: 140px;
 }
 
+#photo {
+	min-width: 320px;
+	min-height: 240px;
+}
+
 #choosen {
 	border: 5px solid #ff6000;
+}
+.choosen {
+	border: 5px solid #ff6000;
+}
+
+.vote {
+	padding: 5px;
+	margin: 10px;
+}
+
+.vote_bar {
+	width: 100%;
+	background-color: red;
+	height: 4px;
+}
+
+.vote_progress {
+	width: 0%;
+	height: 4px;
+	background-color: green;
+}
+
+.vote_btn {
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.vote_like:hover {
+	color: green;
+}
+
+.vote_dislike:hover {
+	color: red;
+}
+
+.form_com {
+	margin: 10px;
 }
 
 /*video {

@@ -15,23 +15,24 @@ session_start();
       <p>Ceci est la balise article</p>
       <video autoplay id="video"></video>
       <center>
-        <form action="upload_img.php" method="POST" enctype="multipart/form-data" class="form-group">
+        <!-- <form action="upload_img.php" method="POST" enctype="multipart/form-data" class="form-group"> -->
           <div class="form-group">
             <label for="">Utiliser une image (PNG) :</label>
-            <input type="file" name="img"/>
-            <button type="submit" class="btn">Upload !</button>
+            <input id="file" type="file" accept="image/png" name="img"/>
+            <!-- <button type="submit" class="btn">Upload !</button> -->
           </div>
-        </form>
+        <!-- </form> -->
       </center>
     </article>
     <aside>
       <p>Ceci dois appararaitre sur le cote de l'article</p>
-      <canvas id="canvas"></canvas>
+      <canvas id="canvas" hidden ></canvas>
+      <img id="photo" src="" />
     </aside>
   <?php endif; ?>
 </section>
 <?php if ($_SESSION['auth']): ?>
-  <section>
+  <section id='section_filters'>
     <header id="header_section">
       <p>Choose a filter !</p>
     </header>
@@ -41,7 +42,7 @@ session_start();
     while ($file = readdir($dir)) {
       if (in_array(substr($file, -3), $allow)) {
         ?>
-        <img id="" class="filters" src="filters/<?php echo $file ?>" alt="" name="<?php echo $file ?>" onclick="select(this)"/>
+        <img id="" class="filters" src="filters/<?php echo $file ?>" alt="" name="<?php echo $file ?>" onclick="select(this);"/>
         <?php
       }
     }?>
