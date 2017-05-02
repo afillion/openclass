@@ -16,15 +16,24 @@ session_start();
 		<div class="vote_bar">
 			<div class="vote_progress" style="width: <?= ($test[$j]->likes + $test[$j]->dislikes) == 0 ? 100 : (100 * ($test[$j]->likes / ($test[$j]->likes + $test[$j]->dislikes)))?>%"></div>
 		</div>
+		<?php if ($_SESSION['auth']): ?>
 		<div class="vote_btns">
 			<button class="vote_btn vote_like" onclick="vote(this, 1);"> <?php $req = $pdo->prepare("SELECT likes FROM images WHERE path = ?"); $req->execute([$test[$j]->path]); $likes = $req->fetch(); $likes = $likes->likes; echo $likes; ?> <i class="fa fa-thumbs-up"></i></button>
 			<button class="vote_btn vote_dislike" onclick="vote(this, -1);"> <?php $req = $pdo->prepare("SELECT dislikes FROM images WHERE path = ?"); $req->execute([$test[$j]->path]); $dislikes = $req->fetch(); $dislikes = $dislikes->dislikes; echo $dislikes; ?> <i class="fa fa-thumbs-down"></i></button>
 		</div>
-		<form action="comment.php" method="POST" class="form_com">
+		<?php $req = $pdo->prepare("SELECT * FROM comments WHERE id_img = ?"); $req->execute([$test[$j]->id]); $display = $req->fetchAll(); ?>
+			<?php foreach($display as $value): ?>
+		<div class="display-comment">
+			
+			<?= $value->comment ?>
+	
+		</div>
+			<?php endforeach; ?>
+		<div class="form_com">
 			<input type="text" name="comment" placeholder="150 caracteres max !">
-			<input type="submit" name="ok" value="Commenter !">
-		</form>
-
+			<button onclick="comment(this);">Send !</button>
+		</div>
+	<? endif; ?>
 	</div>
 <?php endfor; ?>
 </section>

@@ -3,7 +3,7 @@ session_start();
 
 require_once("config/database.php");
 
-$id_user = $_SESSION['auth']->id;
+$id_user = $_SESSION['auth']->id; //on pourrait rajouter un check if(id_user == null) mais normalement c'est ok le button ne s'effiche que si $_SESSION['auth']
 $req = $pdo->prepare("SELECT id FROM images WHERE path = ?");
 $req->execute([$_POST['img_name']]);
 $id_img = $req->fetch();
