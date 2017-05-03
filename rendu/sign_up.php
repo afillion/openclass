@@ -14,8 +14,8 @@ if (!empty($_POST)) {
 	if (empty($_POST['username'])) {
 		$errors['username'] = "Veuillez renseigner un pseudonyme !";
 	}
-	else if (!preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username'])) {
-		$errors['username'] = "Votre pseudo dois etre compose de caractere alphanumerique !";
+	else if (!preg_match('`^([a-zA-Z0-9_]{5,25})$`', $_POST['username'])) {
+		$errors['username'] = "Votre pseudo dois etre compose de caractere alphanumerique et etre compris entre 5 et 25 caracteres !";
 	}
 	else {
 		$req = $pdo->prepare("SELECT id FROM users WHERE username = ?");

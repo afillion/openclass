@@ -48,7 +48,6 @@ function comment(btn, input) {
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState === 4) {
 			if (ajax.status === 200) {
-				console.log(parent);
 				var i = parent.childElementCount - 1
 				var add_before = parent.children[i]
 				var comment = document.createElement('div');

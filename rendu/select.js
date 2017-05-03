@@ -68,7 +68,7 @@ function select (img) {
 }
 
 var imageLoader = document.getElementById('file');
-imageLoader.addEventListener('change', handleImage, false);
+imageLoader.addEventListener('change', handleImage);
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
@@ -80,12 +80,12 @@ function handleImage(e){
 			canvas.width = img.width;
 			canvas.height = img.height;
 			ctx.drawImage(img,0,0);
+			var getcanvas = canvas.toDataURL('image/png');
+		    document.getElementById('photo').setAttribute('src', getcanvas);
 		}
 		img.src = event.target.result;
 	}
 	reader.readAsDataURL(e.target.files[0]);
-	var getcanvas = canvas.toDataURL('image/png');
-    document.getElementById('photo').setAttribute('src', getcanvas);   
 }
 
 var getHttpRequest = function () {
@@ -116,10 +116,3 @@ var getHttpRequest = function () {
 
   return httpRequest
 }
-
-// function section_filters() {
-// 	alert('section_filters');
-// 	if (document.getElementById('photo').src == "http://localhost:8080/openclass/rendu/index.php") {
-// 		document.getElementById("section_filters").setAttribute("style", "hidden");
-// 	}
-// }

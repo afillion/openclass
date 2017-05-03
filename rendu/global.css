@@ -41,6 +41,7 @@ nav {
 	background-color: #ff6000;
 	text-align: center;
 	margin: 5px;
+	word-wrap: break-word;
 }
 
 footer {
@@ -130,6 +131,7 @@ img {
 .vote {
 	padding: 5px;
 	margin: 10px;
+	width: 16%;
 }
 
 .vote_bar {
@@ -147,6 +149,16 @@ img {
 .vote_btn {
 	cursor: pointer;
 	transition: color 0.3s;
+}
+
+.display-comment {
+	max-height: 200px;
+	overflow: auto;
+	max-width: 205px;
+}
+
+.display-comment p {
+	font-size: 0.8em;
 }
 
 .vote_like:hover {
