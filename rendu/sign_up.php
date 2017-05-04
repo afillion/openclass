@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 if (!empty($_POST)) {
 
-	require_once('./config/database.php');
+	require_once('./config/connexion.php');
 
 	$errors = array();
 

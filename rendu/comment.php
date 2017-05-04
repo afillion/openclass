@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config/database.php");
+require_once("config/connexion.php");
 if(strlen($_POST['comment']) > 150) {
 	http_response_code(201);
 	echo "Votre commentaire ne dois pas exceder 150 caracteres !";

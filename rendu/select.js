@@ -1,6 +1,6 @@
 function select (img) {
 
-	if (document.getElementById('photo').src != "http://localhost:8080/openclass/rendu/index.php") {
+	if (document.getElementById('photo').getAttribute('src') != "") {
 		var all = document.getElementsByClassName('filters');
 		for (var i = 0; i < all.length; i++) {
 			all[i].setAttribute('id', '1');
@@ -8,14 +8,14 @@ function select (img) {
 		img.setAttribute('id', 'choosen');
 	}
 	
-	if (document.getElementById('photo').src != "http://localhost:8080/openclass/rendu/index.php" && document.getElementById('choosen') != null) {
+	if (document.getElementById('photo').getAttribute('src') != "" && document.getElementById('choosen') != null) {
 		var data = new FormData();
 		var getcanvas = canvas.toDataURL('image/png');
     	document.getElementById('photo').setAttribute('src', getcanvas);
 		data.append('img', document.getElementById('photo').src);
 		data.append('filter', document.getElementById('choosen').src)
 		var ajax = getHttpRequest();
-		ajax.open('POST', 'http://localhost:8080/openclass/rendu/montage.php', true);
+		ajax.open('POST', './montage.php', true);
 		ajax.setRequestHeader('X-Requested-With', 'xmlhttprequest');
 		ajax.send(data);
 		ajax.onreadystatechange = function() {
@@ -67,6 +67,35 @@ function select (img) {
 	}
 }
 
+ function section_filters() {
+    if (document.getElementById('photo').getAttribute('src') == "") {
+      var section_filter = document.getElementById("section_filters");
+      section_filter.setAttribute("hidden", true);
+      var i = 0;
+      while (i < section_filter.children.length) {
+        section_filter.children[i].setAttribute('hidden', true);
+        for (var j = 0; j < section_filter.children[i].children.length; j++) {
+          section_filter.children[i].children[j].setAttribute('hidden', true);
+          j++;
+        }
+        i++;
+      }
+    }
+    if (document.getElementById('photo').getAttribute('src') != "") {
+      var section_filter = document.getElementById("section_filters");
+      section_filter.removeAttribute("hidden");
+      var i = 0;
+      while (i < section_filter.children.length) {
+        section_filter.children[i].removeAttribute('hidden');
+        for (var j = 0; j < section_filter.children[i].children.length; j++) {
+          section_filter.children[i].children[j].removeAttribute('hidden');
+          j++;
+        }
+        i++;
+      }
+    }
+  }
+
 var imageLoader = document.getElementById('file');
 imageLoader.addEventListener('change', handleImage);
 var canvas = document.getElementById('canvas');
@@ -82,6 +111,7 @@ function handleImage(e){
 			ctx.drawImage(img,0,0);
 			var getcanvas = canvas.toDataURL('image/png');
 		    document.getElementById('photo').setAttribute('src', getcanvas);
+		    section_filters();
 		}
 		img.src = event.target.result;
 	}

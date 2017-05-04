@@ -4,7 +4,7 @@ session_start();
 <?php include("header.php"); ?>
 
 <?php 
-require_once("config/database.php"); 
+require_once("config/connexion.php"); 
 
 $req = $pdo->prepare("SELECT COUNT(*) AS nb FROM images");
 $req->execute();
@@ -56,11 +56,12 @@ $offset = ($page - 1) * 10;
 	<? endif; ?>
 	</div>
 <?php endfor; ?>
-	<div id="page">
+</section>
+	<section id="page">
+		<header id ="header_section">Pages</header>
 <?php  for ($i=1; $i <= $nb_page; $i++): ?>
 	 <a href="gallerie.php?page=<?=$i?>"><?=$i?></a>
 <?php endfor; ?>
-	</div>
-</section>
+	</section>
 <script type="text/javascript" src="vote.js"></script>
 <?php include("footer.php"); ?>

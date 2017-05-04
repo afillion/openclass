@@ -68,6 +68,10 @@ section#myimg {
 	display: block;
 }
 
+section#myimg_index {
+	display: block;
+}
+
 div.alert-wrong {
 	background-color: red;
 	margin: 10px;
@@ -154,7 +158,6 @@ img {
 .display-comment {
 	max-height: 200px;
 	overflow: auto;
-	max-width: 205px;
 }
 
 .display-comment p {
@@ -171,6 +174,28 @@ img {
 
 .form_com {
 	margin: 10px;
+}
+
+#page {
+	align-content: center;
+}
+
+@media all and (max-width: 1024px) and (max-device-width: 1100px) {
+	.vote {
+		width: 40%;
+	}
+}
+
+@media all and (max-device-width: 800px) {
+	article, aside {
+		width: 100%;
+	}
+}
+
+@media all and (max-device-width: 450px) {
+	.vote {
+		width: 100%;
+	}
 }
 
 /*video {

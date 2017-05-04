@@ -47,6 +47,23 @@ session_start();
       }
     }?>
   </section>
+  <?php if($_SESSION['auth']): ?>
+    <section id="myimg_index">
+  <h2>Vos montages !</h2>
+  <?php require_once("config/connexion.php"); $req = $pdo->prepare("SELECT id, id_user, path FROM images WHERE id_user = ? ORDER BY id DESC"); $req->execute([$_SESSION['auth']->id]); $test = $req->fetchAll();?>
+  <?php 
+  $i = 0;
+  while ($test[$i]) {
+    $i++;
+  }
+  ?>
+  <?php for($j = 0; $j < $i; $j++): ?>
+    <img src="<?php echo $test[$j]->path; ?>" onclick="supp_select(this);"/>
+  <?php endfor; ?>
+  <input type="submit" name="delete" value="delete" id="button_del" hidden />
+</section>
+  <script type="text/javascript" src="delete.js"></script>
+<?php endif; ?>
   <br/>
   <script type="text/javascript" src="select.js"></script>
   <script type="text/javascript" src="webrtc.js"></script>

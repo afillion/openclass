@@ -10,7 +10,7 @@ function vote(btn, type) {
 	data.append("vote_value", type);
 
 	ajax = getHttpRequest();
-	ajax.open('POST', 'http://localhost:8080/openclass/rendu/checkvote.php', true);
+	ajax.open('POST', './checkvote.php', true);
 	ajax.setRequestHeader('X-Requested-With', 'xmlhttprequest');
 	ajax.send(data);
 	ajax.onreadystatechange = function () {
@@ -42,7 +42,7 @@ function comment(btn, input) {
 	data.append("comment", input);
 
 	var ajax = getHttpRequest();
-	ajax.open('POST', 'http://localhost:8080/openclass/rendu/comment.php', true);
+	ajax.open('POST', './comment.php', true);
 	ajax.setRequestHeader('X-Requested-With', 'xmlhttprequest');
 	ajax.send(data);
 	ajax.onreadystatechange = function () {

@@ -3,7 +3,7 @@
 $user_id = $_GET['id'];
 $token = $_GET['token'];
 
-require_once("./config/database.php");
+require_once("./config/connexion.php");
 $req = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $req->execute([$user_id]);
 $user = $req->fetch();

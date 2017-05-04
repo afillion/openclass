@@ -1,7 +1,0 @@
-<?php
-	session_start();
-	echo "toto";
-	$test = array();
-	$test = $_SESSION;
-	print_r($_SESSION);
-?>

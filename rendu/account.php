@@ -18,7 +18,7 @@ if (!empty($_POST)) {
 	else {
 		$user_id = $_SESSION['auth']->id;
 		$password = password_hash($_POST['confirm_pass'], PASSWORD_BCRYPT);
-		require_once('config/database.php');
+		require_once('config/connexion.php');
 		$pdo->prepare("UPDATE users SET userpassword = ? WHERE id = ?")->execute([$password, $user_id]);
 		$_SESSION['flash']['success'] = "Votre mot de passe a bien ete mis a jour !";
 	}
@@ -48,7 +48,7 @@ if (!empty($_POST)) {
 
 <section id="myimg">
 	<h2>Vos montages !</h2>
-	<?php require_once("config/database.php"); $req = $pdo->prepare("SELECT id, id_user, path FROM images WHERE id_user = ?"); $req->execute([$_SESSION['auth']->id]); $test = $req->fetchAll();?>
+	<?php require_once("config/connexion.php"); $req = $pdo->prepare("SELECT id, id_user, path FROM images WHERE id_user = ?"); $req->execute([$_SESSION['auth']->id]); $test = $req->fetchAll();?>
 	<?php 
 	$i = 0;
 	while ($test[$i]) {

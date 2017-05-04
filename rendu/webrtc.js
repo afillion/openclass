@@ -60,7 +60,7 @@
   video.addEventListener('click', clickcam, false);
 
   function section_filters() {
-    if (document.getElementById('photo').src == "http://localhost:8080/openclass/rendu/index.php") {
+    if (document.getElementById('photo').getAttribute('src') == "") {
       var section_filter = document.getElementById("section_filters");
       section_filter.setAttribute("hidden", true);
       var i = 0;
@@ -73,7 +73,7 @@
         i++;
       }
     }
-    if (document.getElementById('photo').src != "http://localhost:8080/openclass/rendu/index.php") {
+    if (document.getElementById('photo').getAttribute('src') != "") {
       var section_filter = document.getElementById("section_filters");
       section_filter.removeAttribute("hidden");
       var i = 0;

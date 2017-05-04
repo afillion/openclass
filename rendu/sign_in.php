@@ -7,7 +7,7 @@ require_once('functions.php');
 // }
 
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['userpassword'])) {
-	require_once('config/database.php');
+	require_once('config/connexion.php');
 	$req = $pdo->prepare("SELECT * FROM users WHERE (username = :username OR usermail = :username) AND confirmed_at IS NOT NULL");
 	$req->execute(['username' => $_POST['username']]);
 	$user = $req->fetch();

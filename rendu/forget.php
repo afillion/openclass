@@ -3,7 +3,7 @@ session_start();
 require_once('functions.php');
 
 if (!empty($_POST) && !empty($_POST['usermail'])) {
-	require_once('config/database.php');
+	require_once('config/connexion.php');
 	$req = $pdo->prepare("SELECT * FROM users WHERE usermail = ? AND confirmed_at IS NOT NULL");
 	$req->execute([$_POST['usermail']]);
 	$user = $req->fetch();

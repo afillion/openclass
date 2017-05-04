@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config/database.php");
+require_once("config/connexion.php");
 if (isset($_POST['save_img'])) {
 	$img = base64_decode($_POST['save_img']);
 	$name = date("d-M-Y") . time() . $_SESSION['auth']->username;
